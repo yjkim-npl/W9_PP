@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class UIBase : MonoBehaviour
+public class UIBase : MonoBehaviour
 {
     protected Dictionary<Type, UnityEngine.Object[]> objects= new Dictionary<Type, UnityEngine.Object[]>();
-    public abstract void Init();
+    public virtual void Init() { }
     private void Start()
     {
         Init();

@@ -1,4 +1,5 @@
 using System.Data;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Managers : MonoBehaviour
@@ -8,7 +9,8 @@ public class Managers : MonoBehaviour
     {
         get
         {
-            Init();
+            if(instance == null)
+                Init();
             return instance;
         }
     }
@@ -16,9 +18,23 @@ public class Managers : MonoBehaviour
     DataManager data = new DataManager();
     UIManager ui = new UIManager();
     SoundManager sound = new SoundManager();
+    GameManager game;
     public static DataManager Data { get { return Instance?.data; } }
     public static UIManager UI { get { return Instance?.ui; } }
     public static SoundManager Sound { get {  return Instance?.sound; } }
+    public static GameManager Game 
+    { 
+        get 
+        {
+            return Instance?.game; 
+        } 
+    }
+
+    private void Awake()
+    {
+        game = Util.GetOrAddComponent<GameManager>(gameObject);
+        game.Init();
+    }
     static void Init()
     {
         if(instance is null)

@@ -16,31 +16,31 @@ public class UIEventHandler : MonoBehaviour,
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        actions[(int)Define.UIEvent.Click].Invoke(eventData);
+        actions[(int)Define.UIEvent.Click]?.Invoke(eventData);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        actions[(int)Define.UIEvent.BeginDrag].Invoke(eventData);
+        actions[(int)Define.UIEvent.BeginDrag]?.Invoke(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        actions[(int)Define.UIEvent.Drag].Invoke(eventData);
+        actions[(int)Define.UIEvent.Drag]?.Invoke(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        actions[(int)Define.UIEvent.EndDrag].Invoke(eventData);
+        actions[(int)Define.UIEvent.EndDrag]?.Invoke(eventData);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        actions[(int)Define.UIEvent.PointerDown].Invoke(eventData);
+        actions[(int)Define.UIEvent.PointerDown]?.Invoke(eventData);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        actions[(int)Define.UIEvent.PointerUp].Invoke(eventData);
+        actions[(int)Define.UIEvent.PointerUp]?.Invoke(eventData);
     }
 
 }
